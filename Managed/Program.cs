@@ -10,13 +10,93 @@ namespace Managed
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(string.Format("Start: [{0}], End: [{1}]", args[0], modifyString(args[0])));
+            string arg0;
+            string arg1;
+
+            Console.WriteLine("Enter primary string: ");
+            arg0 = Console.ReadLine();
+            Console.WriteLine("Enter pattern string: ");
+            arg1 = Console.ReadLine();
+
+            Console.WriteLine(string.Format("Pattern [{0}] {1} string [{2}]",
+                arg1, checkMatch(arg0, arg1) ? "matches" : "doesn't match", arg0
+                ));
+
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
 #if false
+            Console.WriteLine(string.Format("Start: [{0}], End: [{1}]", args[0], modifyString(args[0])));
             Console.WriteLine(string.Format("The next sparse number of {0:X} is {1:X}",
                                 args[0], findNextSparse(uint.Parse(args[0], System.Globalization.NumberStyles.AllowHexSpecifier))));
             Console.WriteLine(args[0] + (canBePalindrome(args[0]) ? " can " : " cannot ") + "be a palindrome");
 #endif
         }
+
+        /// <summary>
+        /// Checks whether string conforms to regular expression
+        ///   Expression can contain:
+        ///     '*' - matches one or more of any char
+        ///     '.' - matches any char
+        /// </summary>
+        /// <param name="InputStr"></param>
+        /// <param name="Pattern"></param>
+        /// <returns></returns>
+        static bool checkMatch(string InputStr, string Pattern)
+        {
+            bool wildcardMode = false;
+            
+            int baseStrIndex = 0, strIndex = 0;
+            int basePatIndex = 0, curPatIndex = 0;
+
+            while ((strIndex < InputStr.Length) && (curPatIndex < Pattern.Length))
+            {
+                if (Pattern[curPatIndex] == '*')
+                {
+                    wildcardMode = true;
+                    basePatIndex = ++curPatIndex;
+                    baseStrIndex = strIndex;
+                }
+                else if ((Pattern[curPatIndex] == InputStr[strIndex]) ||
+                    (Pattern[curPatIndex] == '.'))
+                {
+                    strIndex++;
+                    curPatIndex++;
+                }
+                else if (wildcardMode)
+                {
+                    // We didn't match, but we move back and keep trying
+                    curPatIndex = basePatIndex;
+                    strIndex = baseStrIndex + 1;
+                }
+                else
+                {
+                    // Not in wildcard mode and strings don't match - return false
+                    return false;
+                }
+            }
+
+            // Conditions
+            // Pattern out and string out - good
+            //  Pattern out - last saw * in pattern - good, otherwise bad
+            //  string out - only '*' left in pattern good, otherwise bad
+            if (curPatIndex >= Pattern.Length)
+            {
+                if (strIndex >= InputStr.Length)
+                    return true;
+                else
+                    return (Pattern[Pattern.Length - 1] == '*');
+            }
+            else
+            {
+                for (int index = curPatIndex; index < Pattern.Length; index++)
+                {
+                    if (Pattern[index] != '*')
+                        return false;
+                }
+            }
+            return true;
+        }
+
 
         /// <summary>
         /// Modifies string by changing odd words to uppercase and reversing even words
