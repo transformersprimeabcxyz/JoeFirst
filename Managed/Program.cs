@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Managed
 {
-    class Program
+    public class CodingProblems
     {
         static void Main(string[] args)
         {
@@ -32,6 +32,12 @@ namespace Managed
 #endif
         }
 
+        static int findMaxCluster(int[][] grid)
+        {
+            return 0;
+        }
+
+
         /// <summary>
         /// Checks whether string conforms to regular expression
         ///   Expression can contain:
@@ -41,7 +47,7 @@ namespace Managed
         /// <param name="InputStr"></param>
         /// <param name="Pattern"></param>
         /// <returns></returns>
-        static bool checkMatch(string InputStr, string Pattern)
+        public static bool checkMatch(string InputStr, string Pattern)
         {
             bool wildcardMode = false;
             
@@ -67,6 +73,7 @@ namespace Managed
                     // We didn't match, but we move back and keep trying
                     curPatIndex = basePatIndex;
                     strIndex = baseStrIndex + 1;
+                    baseStrIndex = strIndex;
                 }
                 else
                 {
@@ -103,7 +110,7 @@ namespace Managed
         /// </summary>
         /// <param name="inputStr"></param>
         /// <returns></returns>
-        static string modifyString(string inputStr)
+        public static string modifyString(string inputStr)
         {
             bool fEven = false;
             int startIndex = 0;
@@ -153,7 +160,7 @@ namespace Managed
         /// </summary>
         /// <param name="num">Input number</param>
         /// <returns>Next sparse number</returns>
-        static uint findNextSparse(uint num)
+        public static uint findNextSparse(uint num)
         {
             // Scan for high order bit
             int highBit = sizeof(uint) * 8;

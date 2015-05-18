@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managed", "Managed\Managed.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Native", "Native\Native.vcxproj", "{CF7A4CE5-D824-409F-B2E1-13717E27E1A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedTests", "ManagedTests\ManagedTests.csproj", "{49ACE503-37EB-4812-B45B-B9E81D9140E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,16 @@ Global
 		{CF7A4CE5-D824-409F-B2E1-13717E27E1A5}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{CF7A4CE5-D824-409F-B2E1-13717E27E1A5}.Release|Win32.ActiveCfg = Release|Win32
 		{CF7A4CE5-D824-409F-B2E1-13717E27E1A5}.Release|Win32.Build.0 = Release|Win32
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{49ACE503-37EB-4812-B45B-B9E81D9140E0}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

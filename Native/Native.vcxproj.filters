@@ -32,8 +32,5 @@
     <ClCompile Include="Native.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UseSTL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
